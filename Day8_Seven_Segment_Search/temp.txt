@@ -1,0 +1,34 @@
+
+
+ab: 1
+acdfg: 2
+abcdf: 3
+abef: 4
+bcdef:5
+bcdefg:6
+abd:7
+abcdefg:8
+abcdef:9
+
+
+bcdef:5
+acdfg: 2
+
+
+cefabd: 9
+cagedb: 0
+
+
+known:
+
+ab: 1
+#fbcad: 3 # tässä on a ja b. voidaan päätellä vaakaviivat.
+eafb: 4
+dab: 7
+acedgfb: 8
+cdfgeb: 6 #
+
+
+
+
+

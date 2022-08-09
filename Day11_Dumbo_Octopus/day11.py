@@ -4,11 +4,15 @@ class OctopusCave:
     def __init__(self, octopus_layout):
         self.layout = octopus_layout
         self.flash_history = 0
+        self.rounds = 0
         self.rows = len(octopus_layout)
         self.columns = len(octopus_layout[0])
 
     def add_flash(self, flashes=1):
         self.flash_history += flashes
+
+    def set_round(self, i):
+        self.flash_rounds = i
 
     def __repr__(self):
         return f"Flashes: {self.flash_history}\nData: \n {self.layout}."
@@ -17,8 +21,8 @@ class OctopusCave:
         for line in self.layout:
             print(line)
 
-    def print_flash_history(self):
-        print(self.flash_history)
+    def get_flash_history(self) -> int:
+        return self.flash_history
 
     def add_one_to_each(self):
         for line in self.layout:
@@ -78,7 +82,8 @@ class OctopusCave:
         return number_of_flashes
 
     def loop_cave(self, rounds: int, loop_until_all_flash=False) -> None:
-        for i in range(rounds):
+        for i in range(1, rounds+1):
+            self.round(i)
             self.add_one_to_each()  # add one to each item
             self.loop_flashes()
             number = self.set_flashes_to_0()
@@ -101,7 +106,9 @@ def _read_input(file="day11.dat"):
 if __name__ == "__main__":
     layout = OctopusCave(_read_input())
     layout.loop_cave(100)
-    layout.print_flash_history()
+    part1 = layout.get_flash_history()
+    assert part1 == 1700
+    print(part1)
     #1700
 
     # part 2: print
